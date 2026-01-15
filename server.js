@@ -46,24 +46,4 @@ app.get('/download', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-```
 
----
-
-### PASO 3: Guarda los cambios
-
-1. Baja hasta el final
-2. En "Commit message" escribe: `Fix yt-dlp path`
-3. Haz clic en **"Commit changes"**
-
----
-
-### PASO 4: Render desplegará automáticamente
-
-Render detectará el cambio y re-desplegará automáticamente en 2-3 minutos.
-
----
-
-**Espera 3 minutos y luego prueba de nuevo:**
-```
-https://youtube-downloader-api-71b9.onrender.com/download?id=dQw4w9WgXcQ
