@@ -24,9 +24,9 @@ app.get('/download', async (req, res) => {
   }
 
   try {
-    const command = `yt-dlp -f "best[height<=720]" --cookies /opt/render/project/src/cookies.txt --get-url "https://www.youtube.com/watch?v=${videoId}"`;
+    const command = `./yt-dlp -f "best[height<=720]" --cookies cookies.txt --get-url "https://www.youtube.com/watch?v=${videoId}"`;
     
-    const { stdout, stderr } = await execPromise(command, { timeout: 30000 });
+    const { stdout, stderr } = await execPromise(command, { timeout: 60000 });
     
     if (stderr && stderr.includes('ERROR')) {
       return res.status(500).json({ error: 'Failed to get video URL', details: stderr });
@@ -46,3 +46,24 @@ app.get('/download', async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
+```
+
+---
+
+### PASO 3: Guarda los cambios
+
+1. Baja hasta el final
+2. En "Commit message" escribe: `Fix yt-dlp path`
+3. Haz clic en **"Commit changes"**
+
+---
+
+### PASO 4: Render desplegará automáticamente
+
+Render detectará el cambio y re-desplegará automáticamente en 2-3 minutos.
+
+---
+
+**Espera 3 minutos y luego prueba de nuevo:**
+```
+https://youtube-downloader-api-71b9.onrender.com/download?id=dQw4w9WgXcQ
